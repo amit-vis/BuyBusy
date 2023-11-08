@@ -1,6 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "./BuybusyStore";
 import { addDoc, collection } from "firebase/firestore";
+import {data} from './component/data/data';
 
 const itemContext = createContext();
 
@@ -11,6 +12,9 @@ function useValue() {
 
 function CustomItemContext({ children }) {
     const [userDetails, setUserDetails] = useState({ userName: "", userEmail: "", userPassword: "" });
+    const [searchQuery, setSearchQuery] = useState("")
+    const [filterData, setFilterData] = useState([])
+    const [rangeFilter, setRangeFilter] = useState(50000)
 
     // function for store a user details in database
     async function addDetails(newUser) {
@@ -24,15 +28,49 @@ function CustomItemContext({ children }) {
         console.log("docRef", docRef)
     }
 
-
     // handle submit
     function handleSubmit(e) {
         e.preventDefault()
         addDetails(userDetails)
         setUserDetails({ userName: "", userEmail: "", userPassword: "" })
     }
+
+    // search Query
+    useEffect(()=>{
+        const searchData = data.filter((item)=>{
+            return item.itemName.toLowerCase().includes(searchQuery.toLowerCase())
+        })
+        setFilterData(searchData)
+    },[searchQuery])
+
+    useEffect(()=>{
+        const filteredItems = data.filter((i)=>{
+            return i.itemPrice <= rangeFilter;
+        })
+        setFilterData(filteredItems)
+    },[rangeFilter])
+
+    // handle key press for search query
+    function handleKeyPress(e){
+        if(e.key==="Enter"){
+            const submitSearchQuery = data.filter((i)=>{
+                return i.itemName.toLowerCase().includes(searchQuery.toLowerCase())
+            })
+            setFilterData(submitSearchQuery)
+        }
+    }
+    
     return (
-        <itemContext.Provider value={{ userDetails, setUserDetails, handleSubmit }}>
+        <itemContext.Provider value={{ userDetails, 
+        setUserDetails, 
+        handleSubmit,
+        searchQuery,
+        setSearchQuery,
+        filterData,
+        handleKeyPress,
+        rangeFilter,
+        setRangeFilter
+        }}>
             {children}
         </itemContext.Provider>
     )

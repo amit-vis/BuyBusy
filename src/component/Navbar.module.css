@@ -1,0 +1,24 @@
+.nav_container{
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    margin: auto;
+    box-shadow: 10px 10px 5px 5px grey;
+    border-radius: 10px;
+    background-color: beige;
+}
+.nav_item{
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+    align-items: center;
+}
+.nav_home{
+    margin-right: 2%;
+}
+.nav_signup{
+    margin-right: 2%;
+}
+.title{
+    margin-left: 1%;
+}
