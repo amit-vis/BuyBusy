@@ -12,9 +12,10 @@ function useValue() {
 
 function CustomItemContext({ children }) {
     const [userDetails, setUserDetails] = useState({ userName: "", userEmail: "", userPassword: "" });
-    const [searchQuery, setSearchQuery] = useState("")
-    const [filterData, setFilterData] = useState([])
-    const [rangeFilter, setRangeFilter] = useState(50000)
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filterData, setFilterData] = useState([]);
+    const [rangeFilter, setRangeFilter] = useState(50000);
+    const [selectedCategories, setSelectedCategories] = useState([]);
 
     // function for store a user details in database
     async function addDetails(newUser) {
@@ -43,12 +44,23 @@ function CustomItemContext({ children }) {
         setFilterData(searchData)
     },[searchQuery])
 
+    // range filter
     useEffect(()=>{
         const filteredItems = data.filter((i)=>{
             return i.itemPrice <= rangeFilter;
         })
         setFilterData(filteredItems)
     },[rangeFilter])
+
+    // checkBoxFilter
+    useEffect(()=>{
+        const checkBoxFilter = selectedCategories.length>0 ? 
+        data.filter((item)=>selectedCategories.includes(item.itemCategory)): data;
+
+        setFilterData(checkBoxFilter);
+
+    },[selectedCategories])
+
 
     // handle key press for search query
     function handleKeyPress(e){
@@ -69,7 +81,9 @@ function CustomItemContext({ children }) {
         filterData,
         handleKeyPress,
         rangeFilter,
-        setRangeFilter
+        setRangeFilter,
+        selectedCategories,
+        setSelectedCategories
         }}>
             {children}
         </itemContext.Provider>

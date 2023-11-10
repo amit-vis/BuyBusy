@@ -29,7 +29,7 @@
   }
   
   .cartButton {
-    margin-top: auto; /* Align button to the bottom */
+    margin-top: auto;/* Align button to the bottom */
     padding: 4%;
     width: 100%;
     box-sizing: border-box;
@@ -38,6 +38,7 @@
     font-size: large;
     font-weight: 200;
     border-radius: 20px;
+    margin-bottom: 2%;
   }
   
   .itemImage {
@@ -67,11 +68,38 @@
     top: 20%;
     left: 78%;
     width: 20%;
-    height: 20vh;
   }
   .filterSection{
     background-color: rgb(206, 200, 200);
     box-sizing: content-box;
     width: 100%;
     height: 100%;
+    padding-bottom: 2%;
+    border-radius: 10px;
   }
+  .rangeInput{
+    width: 80%;
+  }
+  .flterTitle{
+    font-size: 30px;
+    margin: auto;
+    padding: 10%;
+  }
+  .filterPrice{
+    font-size: 20px;
+    margin: auto;
+    padding-bottom: 5%;
+  }
+  .categoryTitle{
+    font-size: 20px;
+  }
+  .checkBoxContainer{
+    width: 50%;
+    text-align: left;
+    margin: auto;
+    padding-bottom: 3%;
+  }
+  input[type="checkbox"]{
+    transform: scale(1.3);
+  }
+  
