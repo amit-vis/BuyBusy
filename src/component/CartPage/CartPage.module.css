@@ -1,7 +1,9 @@
 .section {
     display: flex;
     flex-wrap: wrap;
-  }
+    text-align: center;
+}
+
 .item_container {
     display: flex;
     flex-direction: column;
@@ -10,7 +12,7 @@
     /* Center the content horizontally */
     box-shadow: 10px 10px 10px 10px rgb(195, 187, 187);
     border-radius: 20px;
-    width: 30%;
+    width: 20%;
     margin: 1%;
     box-sizing: border-box;
 }
@@ -18,16 +20,7 @@
 .title {
     margin: 0;
     /* Remove padding and add margin */
-    padding-top: auto;
-    /* Remove padding */
-    text-align: center;
-    /* Center the text horizontally */
-}
-
-.price {
-    margin: 0;
-    /* Remove padding and add margin */
-    padding-top: 0;
+    padding-top: 2%;
     /* Remove padding */
     text-align: center;
     /* Center the text horizontally */
@@ -36,7 +29,7 @@
 .cartButton {
     margin-top: auto;
     /* Align button to the bottom */
-    padding: 4%;
+    padding: 2%;
     width: 100%;
     box-sizing: border-box;
     background-color: blueviolet;
@@ -44,4 +37,76 @@
     font-size: large;
     font-weight: 200;
     border-radius: 20px;
+}
+
+.itemImage {
+    border-radius: 20px;
+    width: 100%;
+    height: 80%;
+}
+
+.price {
+    margin: 0;
+    /* Remove padding and add margin */
+    padding-top: 3%;
+    /* Remove padding */
+    text-align: center;
+    /* Center the text horizontally */
+
+
+}
+
+.countButton {
+    background-color: red;
+    border: none;
+    font-weight: bolder;
+    border-radius: 50%;
+    padding: 5%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+.countContainer {
+    width: 40%;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.quantityCont {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.asideSection {
+    /* display: inline-block; */
+    position: fixed;
+    top: 20%;
+    right: 0;
+    width: 12%;
+}
+.priceSection {
+    background-color: rgb(206, 200, 200);
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2%;
+    border-radius: 10px;
+    padding-top: 8%;
+}
+.purchaseButton{
+    margin-bottom: 10%;
+    margin-top: 5%;
+    width: 80%;
+    background-color: blueviolet;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
 }

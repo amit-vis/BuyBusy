@@ -16,6 +16,8 @@ function CustomItemContext({ children }) {
     const [filterData, setFilterData] = useState([]);
     const [rangeFilter, setRangeFilter] = useState(50000);
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice]= useState(0);
 
     // function for store a user details in database
     async function addDetails(newUser) {
@@ -71,6 +73,71 @@ function CustomItemContext({ children }) {
             setFilterData(submitSearchQuery)
         }
     }
+
+    useEffect(()=>{
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    },[cartItems])
+
+    useEffect(()=>{
+        const storeData = localStorage.getItem("cartItems");
+        try {
+            const parsedData = JSON.parse(storeData);
+            console.log("Parsed Data:", parsedData);
+            setCartItems(parsedData);
+        } catch (error) {
+            console.error("Error parsing localStorage data:", error);
+        }
+    },[])
+
+    // handle Add to cart
+    function handleCart(product){
+        const findItem = cartItems.find((item)=> item.id === product.id)
+        if(findItem){
+            const updateQuantity = parseInt(findItem.quantity,10)+1
+            setCartItems(cartItems.map((item)=>item.id === product.id ? {...findItem, isAdding: true, quantity: updateQuantity}: item))
+        }else{
+
+            setCartItems([...cartItems,{...product, quantity: 1, isAdding: true}])
+        }
+    }
+
+    function handleIncrease(product){
+        setCartItems((prevCartItem)=>
+        prevCartItem.map((item)=>
+        item.id === product.id?{...item, quantity: item.quantity + 1}: item
+        )
+        )
+    }
+
+    function handledecrease(product){
+        setCartItems((prevCartItem)=>
+        prevCartItem.map((item)=>
+        item.id === product.id?{...item, quantity: Math.max(item.quantity - 1,0)}: item
+        )
+        )
+    }
+
+    // when count is zero then
+    useEffect(() => {
+        // Find the item in the updated state
+        cartItems.map((item)=>{
+            if(item.quantity===0){
+                removeCartItem(item.id)
+            }
+        })
+    }, [cartItems]);
+
+    // remove the item from the cart
+    function removeCartItem(ItemId){
+        const removeItem = cartItems.filter((item)=> item.id !== ItemId)
+        setCartItems(removeItem)
+    }
+
+    // calculate total price
+    useEffect(()=>{
+        const updatePrice = cartItems.reduce((price, item)=> price+ item.quantity*item.itemPrice,0)
+        setTotalPrice(updatePrice)
+    },[cartItems]);
     
     return (
         <itemContext.Provider value={{ userDetails, 
@@ -83,7 +150,13 @@ function CustomItemContext({ children }) {
         rangeFilter,
         setRangeFilter,
         selectedCategories,
-        setSelectedCategories
+        setSelectedCategories,
+        handleCart,
+        cartItems,
+        handleIncrease,
+        handledecrease,
+        removeCartItem,
+        totalPrice
         }}>
             {children}
         </itemContext.Provider>

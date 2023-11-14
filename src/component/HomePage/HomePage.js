@@ -9,7 +9,9 @@ function Homepage() {
         rangeFilter,
         setRangeFilter,
         selectedCategories,
-        setSelectedCategories
+        setSelectedCategories,
+        handleCart,
+        addText
     } = useValue();
 
     return (
@@ -85,7 +87,10 @@ function Homepage() {
                         <img src={item.itemUrl} alt={item.itemName} className={Style.itemImage} />
                         <p className={Style.title}>{item.itemName}</p>
                         <h4 className={Style.price}>&#8377; {item.itemPrice}</h4>
-                        <button className={Style.cartButton}>Add to cart</button>
+                        <button className={Style.cartButton} onClick={() => handleCart(item)}>
+                            Add To Cart
+                        </button>
+
                     </div>
 
                 ))}
