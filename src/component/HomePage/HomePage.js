@@ -1,5 +1,6 @@
 import Style from './HomePage.module.css';
 import { useValue } from '../../contextData';
+import { ToastContainer } from 'react-toastify';
 
 function Homepage() {
     const {searchQuery,
@@ -11,7 +12,7 @@ function Homepage() {
         selectedCategories,
         setSelectedCategories,
         handleCart,
-        addText
+        cartButtonStatus
     } = useValue();
 
     return (
@@ -88,7 +89,7 @@ function Homepage() {
                         <p className={Style.title}>{item.itemName}</p>
                         <h4 className={Style.price}>&#8377; {item.itemPrice}</h4>
                         <button className={Style.cartButton} onClick={() => handleCart(item)}>
-                            Add To Cart
+                            {cartButtonStatus[item.id]? "Adding": "Add To Cart"}
                         </button>
 
                     </div>
@@ -96,6 +97,7 @@ function Homepage() {
                 ))}
             </div>
             </div>
+            <ToastContainer/>
         </>
     )
 }

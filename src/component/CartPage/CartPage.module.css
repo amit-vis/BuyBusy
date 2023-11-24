@@ -38,6 +38,11 @@
     font-weight: 200;
     border-radius: 20px;
 }
+.cartButton:hover{
+    background-color: transparent;
+    color: blueviolet;
+    border: 2px solid blueviolet;
+}
 
 .itemImage {
     border-radius: 20px;
@@ -57,7 +62,7 @@
 }
 
 .countButton {
-    background-color: red;
+    background-color: rgb(80, 17, 17);
     border: none;
     font-weight: bolder;
     border-radius: 50%;
@@ -87,6 +92,7 @@
     top: 20%;
     right: 0;
     width: 12%;
+    color: rgb(22, 22, 91);
 }
 .priceSection {
     background-color: rgb(206, 200, 200);
@@ -109,4 +115,9 @@
     border-radius: 10px;
     padding-top: 2.5%;
     padding-bottom: 2.5%;
+}
+.purchaseButton:hover{
+    background-color: transparent;
+    color: blueviolet;
+    border: 2px solid blueviolet;
 }

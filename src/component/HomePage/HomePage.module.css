@@ -1,6 +1,7 @@
 .section {
   display: flex;
   flex-wrap: wrap;
+  text-transform: uppercase;
 }
 
 .item_container {
@@ -44,9 +45,15 @@
   background-color: blueviolet;
   color: white;
   font-size: large;
-  font-weight: 200;
+  font-weight: 700;
   border-radius: 20px;
   margin-bottom: 2%;
+  text-transform: uppercase;
+}
+.cartButton:hover{
+  background-color: transparent;
+  border: 2px solid blueviolet;
+  color: blueviolet;
 }
 
 .itemImage {
@@ -87,6 +94,7 @@
   height: 100%;
   padding-bottom: 2%;
   border-radius: 10px;
+  color: rgb(11, 17, 62)
 }
 
 .rangeInput {

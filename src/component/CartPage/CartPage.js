@@ -1,20 +1,27 @@
 import Style from './CartPage.module.css';
 import { useValue } from '../../contextData';
+import { Link } from 'react-router-dom';
 function Cart(){
     const {
         cartItems,
         handleIncrease,
         handledecrease,
         removeCartItem,
-        totalPrice} = useValue();
+        totalPrice,
+        handlePurchase,
+        cartButtonStatus} = useValue();
 
     return(
         <>
          <aside className={Style.asideSection}>
-                <div className={Style.priceSection} >
-                    <h3>TotalPrice:- &#8377; {totalPrice}</h3>
-                    <button className={Style.purchaseButton}>Purchase</button>
-                </div>
+            {cartItems.length>0 &&
+            <div className={Style.priceSection} >
+                <h3>TotalPrice:- &#8377; {totalPrice}</h3>
+                <Link to="/Order">
+                <button className={Style.purchaseButton} 
+                onClick={handlePurchase} >{cartButtonStatus[cartItems.id]? "Purchasing...": "Purchase"}</button>
+                </Link>
+            </div>}
         </aside>
         <div className={Style.section}>
             {cartItems.map((item)=>(

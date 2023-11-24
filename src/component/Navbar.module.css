@@ -6,6 +6,7 @@
     box-shadow: 10px 10px 5px 5px grey;
     border-radius: 10px;
     background-color: beige;
+    margin-bottom: 3%;
 }
 .nav_item{
     display: flex;
@@ -14,11 +15,38 @@
     align-items: center;
 }
 .nav_home{
-    margin-right: 2%;
+    margin-right: 3%;
+}
+.navLink{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 140%;
+    text-decoration: none;
+    color: rgb(61, 78, 93);
 }
 .nav_signup{
     margin-right: 2%;
 }
 .title{
-    margin-left: 1%;
+    margin-left: 20px;
+}
+.outerNav{
+    text-decoration: none;
+    color: rgb(61, 78, 93);
+}
+.logOutButton{
+    background-color: cadetblue;
+    border: none;
+    border-radius: 10px;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 5%;
+}
+
+.logOutButton:hover{
+    transform: scale(1.2);
+}
+.icon_name:hover{
+    transform: scale(1.2);
 }
