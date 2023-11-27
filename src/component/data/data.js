@@ -1,4 +1,5 @@
 
+// main cart item category
 export const data = [
     {
         id : "1",

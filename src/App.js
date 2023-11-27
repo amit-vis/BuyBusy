@@ -12,7 +12,10 @@ import Signin from './component/UserInfo/signIn';
 
 
 function App() {
+  // import all the require things from context data
   const {userName} = useValue();
+
+  // given the route to all the section
   const router = createBrowserRouter([
     {
         path: '/', element: <Navbar/>,

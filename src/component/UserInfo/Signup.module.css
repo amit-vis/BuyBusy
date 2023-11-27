@@ -1,3 +1,4 @@
+/* Style of sigup section */
 .signupcontainer{
     background-color: rgba(201, 239, 239, 0.197);
     width: 50%;
@@ -33,4 +34,30 @@
     border: 2px solid rgb(161, 71, 71);
     background-color: transparent;
     color: rgb(161, 71, 71);
+}
+.googleSignUp{
+    background-color: rgb(115, 89, 57);
+    padding: 1%;
+    border: none;
+    border-radius: 10px;
+    color: beige;
+    font-weight: bold;
+
+}
+.googleSignUp:hover{
+    border: 2px solid rgb(115, 89, 57);
+    color: rgb(115, 89, 57);
+    background-color: transparent;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+    .signupcontainer{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .signupcontainer{
+        width: 80%;
+    }
 }

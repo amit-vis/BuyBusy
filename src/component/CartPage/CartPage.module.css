@@ -1,3 +1,4 @@
+/* style of cart item */
 .section {
     display: flex;
     flex-wrap: wrap;
@@ -120,4 +121,108 @@
     background-color: transparent;
     color: blueviolet;
     border: 2px solid blueviolet;
+}
+
+/* responsive code */
+
+@media screen and (max-width: 800px) {
+    .item_container{
+        width: 27%;
+        text-align: center;
+    }
+    .itemImage{
+        height: 50%;
+    }
+    .countButton{
+        width: 20px;
+        height: 20px;
+    }
+    .asideSection{
+        font-size: small;
+        width: 14%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .item_container{
+        width: 25%;
+        text-align: center;
+    }
+    .itemImage{
+        height: 50%;
+    }
+    .countButton{
+        width: 20px;
+        height: 20px;
+    }
+    .asideSection{
+        font-size: small;
+        width: 19%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .countContainer {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .countContainer {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .countContainer {
+        width: 60%;
+    }
+    .countButton{
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .countButton{
+        width: 24px;
+        height: 24px;
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 700px) {
+    
+    .countContainer {
+        width: 50%;
+    }
+    .countButton{
+        width: 20px;
+        height: 20px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .item_container{
+        width: 25%;
+        text-align: center;
+    }
+    .itemImage{
+        height: 50%;
+    }
+    .countContainer {
+        width: 50%;
+    }
+    .countButton{
+        width: 18px;
+        height: 18px;
+        font-size: 13px;
+    }
+    .asideSection{
+        font-size: small;
+        width: 19%;
+    }
+    .cartButton{
+        font-size: medium;
+    }
 }

@@ -1,3 +1,4 @@
+/* Style of the Navbar section */
 .nav_container{
     display: flex;
     justify-content: center;
@@ -47,6 +48,59 @@
 .logOutButton:hover{
     transform: scale(1.2);
 }
+
 .icon_name:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+/* responsive Site */
+@media screen and (max-width: 1200px){
+    .nav_home{
+        margin-right: 4%;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .nav_home{
+        margin-right: 6%;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .navLink{
+        width: 120%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .nav_item{
+        width: 80%;
+    }
+    .nav_home{
+        margin-right: 3%;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .nav_item{
+        width: 78%;
+        font-size: 12px
+    }
+    .nav_home{
+        margin-right: 3%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .nav_item{
+        width: 75%;
+        font-size: 12px
+    }
+    .nav_home{
+        margin-right: 3%;
+    }
+    .imageIcon{
+        width: 20px;
+        height: 20px;
+    }
 }

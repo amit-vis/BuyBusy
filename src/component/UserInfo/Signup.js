@@ -5,9 +5,11 @@ import Style from "./Signup.module.css";
 
 
 function Register() {
-    const { userDetails, setUserDetails, handleSubmit, errorMsg } = useValue()
+    // import all the requirted things from the contextData
+    const { userDetails, setUserDetails, handleSubmit, errorMsg, handleGoogleSignIn,googleSignIn } = useValue()
     const navigate = useNavigate();
 
+    // handle SignUp button
     async function handleSignUp(e) {
         try {
             e.preventDefault();
@@ -24,10 +26,21 @@ function Register() {
 
         }
     }
+
+    // handle google sign Up
+    async function handleGoogleSignup(){
+        if(googleSignIn){
+            await handleGoogleSignIn();
+            navigate('/');
+            toast.success("Logged In successfully!!")
+        }
+    }
     return (
         <>
+        {/* sigup section */}
             <div className={Style.signupcontainer}>
                 <h1>Sign Up</h1>
+                <button className={Style.googleSignUp} onClick={handleGoogleSignup}>Google SignUp</button><br/><br/>
                 <form onSubmit={handleSignUp}>
                     <label className="label">Name</label>
                     <br/>
